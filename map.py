@@ -4,11 +4,11 @@ class Map:
         self.murs = set([])
         for k in range(len(mur)):
             for i in range(mur[k][0][0],mur[k][1][0]):
-                self.murs.add((mur[k][0][1],i))
-                self.murs.add((mur[k][1][1],i))
+                self.murs.add((i,mur[k][0][1]))
+                self.murs.add((i,mur[k][1][1]))
             for j in range(mur[k][0][1],mur[k][1][1]):
-                self.murs.add((j,mur[k][0][0]))
-                self.murs.add((j,mur[k][1][0]))
+                self.murs.add((mur[k][0][0],j))
+                self.murs.add((mur[k][1][0],j))
         self.portes = set(porte)
         for y in porte:
             if y in self.murs:
