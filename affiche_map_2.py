@@ -78,12 +78,12 @@ def affiche_map(carte, personnage, monstres, objets, escaliers):
             color = (132, 132, 132)
             pg.draw.rect(screen, color, rect)
             screen.blit(text_surface_obj, text_rect_obj)
-        for z in escaliers:
-            font_obj = pg.font.Font('freesansbold.ttf', taille // 2)
-            text_rect_obj.center = ((taille * z[0] + taille / 2),
-                                (taille * z[1] + taille / 2))
-            color = (91, 60, 17)
-            screen.blit(text_surface_obj, text_rect_obj)
+    for z in escaliers:
+        font_obj = pg.font.Font('freesansbold.ttf', taille // 2)
+        text_rect_obj.center = ((taille * z[0] + taille / 2),
+                            (taille * z[1] + taille / 2))
+        color = (91, 60, 17)
+        screen.blit(text_surface_obj, text_rect_obj)
 
 
 
