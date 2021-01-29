@@ -4,12 +4,13 @@ from classe_mons_pers import Personnage, Monstre, Objet
 from map import Map
 
 personnage = Personnage([5, 5])
-mur = [[[1, 1], [14, 8]], [[5, 15], [26, 22]]]
-porte = [(14, 7), (22, 15)]
-couloir = [[[15, 7], [22, 7], [22, 14]]]
+mur = [[[1, 1], [14, 8]], [[5, 15], [26, 22]], [[1, 25], [14, 32]]]
+porte = [(14, 7), (22, 15), (2, 8), (2, 25)]
+couloir = [[[15, 7], [22, 7], [22, 14]], [[2, 9], [2, 24]]]
 carte = Map(mur, porte, couloir)
-monstre = Monstre([10, 20], 15, 5)
-monstres = [monstre]
+monstre1 = Monstre([10, 20], 15, 5)
+monstre2 = Monstre([13, 31], 20, 5)
+monstres = [monstre1, monstre2]
 potion1 = Objet("soin", [5, 4], 30)
 potion2 = Objet("soin", [18, 17], 30)
 marteau = Objet("arme", [10, 5], 20)
