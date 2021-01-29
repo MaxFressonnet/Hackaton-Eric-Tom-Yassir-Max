@@ -1,8 +1,8 @@
 import pygame as pg
 from classe_mons_pers import Monstre
 pg.init()
-taille = 20
-screen = pg.display.set_mode((600, 600))
+taille = 15
+screen = pg.display.set_mode((1000, 600))
 
 
 def affiche_map(carte, personnage, monstres, objets):
