@@ -10,8 +10,8 @@ couloir = [[[15, 7], [22, 7], [22, 14]]]
 carte = Map(mur, porte, couloir)
 monstre = Monstre([10, 20], 15, 5)
 monstres = [monstre]
-potion1 = Objet("soin", [5,4], 30)
-potion2 = Objet("soin", [18,17], 30)
+potion1 = Objet("soin", [5, 4], 30)
+potion2 = Objet("soin", [18, 17], 30)
 marteau = Objet("arme", [10, 5], 20)
 listobj = [potion1, potion2, marteau]
 
@@ -39,7 +39,7 @@ while running:
                     Monstre.avancer(monstre, personnage, event.key, carte)
             for x in listobj:
                 if x.position == personnage.position:
-                    if event.type == pg.K_r:
+                    if event.key == pg.K_r:
                         if x.nom == "soin":
                             if personnage.hp < personnage.hpmax - x.power:
                                 personnage.hp += x.power
@@ -51,6 +51,6 @@ while running:
                         if x.nom == "gold":
                             personnage.gold += x.power
                         listobj.remove(x)
-        affiche_map(carte, personnage, monstres)
+        affiche_map(carte, personnage, monstres, listobj)
         pg.display.set_caption(f"Force : {personnage.force}")
         pg.display.set_caption(f"Gold : {personnage.gold}")
