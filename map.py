@@ -9,6 +9,7 @@ class Map:
             for j in range(mur[k][0][1],mur[k][1][1]):
                 self.murs.add((mur[k][0][0],j))
                 self.murs.add((mur[k][1][0],j))
+            self.murs.add((mur[k][1][0],mur[k][1][1]))
         self.portes = set(porte)
         for y in porte:
             if y in self.murs:
@@ -33,8 +34,8 @@ class Map:
                                 self.couloirs.add((couloir[k][i][0],m))
 
 
-mur = [[[1,1],[14,8]],[[5,15],[26,22]]]
+mur = [[[1,1],[13,8]],[[5,15],[26,22]]]
 porte = [(13,7),(22,15)]
-couloir = [[[14,7],[22,7],[22,14]]]
+couloir = [[[13,8],[22,7],[22,14]]]
 
 map1 = Map(mur,porte,couloir)
