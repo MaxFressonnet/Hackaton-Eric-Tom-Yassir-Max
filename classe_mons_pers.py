@@ -1,4 +1,5 @@
 import pygame as pg
+from map import Map
 
 class Personnage:
      
@@ -8,7 +9,7 @@ class Personnage:
         self.force = force
         self.previous = position
 
-    def avancer(self, key):
+    def avancer(self, key, carte):
         self.previous = self.position
         if key == pg.K_LEFT:
             direction = [-1, 0]
@@ -20,8 +21,15 @@ class Personnage:
             direction = [0, 1] 
         
         pos = [self.position[0] + direction[0], self.position[1] + direction[1]]
-        if pos not in 
-    
+        if self.position in carte.couloirs :
+            if pos not in carte.murs and (pos in carte.couloirs or pos in self.portes):
+                self.position = pos
+        else :
+            if pos not in carte.murs:
+                self.position = pos
+             
+
+
 
 class Monstre:
 
@@ -47,7 +55,10 @@ class Monstre:
             if d <= 5:
                 self.vue = True
     
-    def attaquer(self, personnage)
+
+    
+    def attaquer(self, personnage):
+        pass
 
 
 
