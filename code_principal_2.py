@@ -31,16 +31,15 @@ listobj2 = [potion21, gold2, epee]
 escalier = [6,21]
 escalier2 = [2,2]
 
-
+objets = listobj
+lesmonstres = monstres
+lacarte = carte
+esc = escalier
 
 running = True
 while running:
     if personnage.hp <= 0:
         running = False
-    objets = listobj
-    lesmonstres = monstres
-    lacarte = carte
-    esc = escalier
     for event in pg.event.get():
         # chaque évênement à un type qui décrit la nature de l'évênement
         # un type de pg.QUIT signifie que l'on a cliqué sur la "croix" de la fenêtre
