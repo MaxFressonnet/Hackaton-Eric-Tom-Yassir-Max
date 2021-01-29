@@ -5,7 +5,7 @@ taille = 20
 screen = pg.display.set_mode((600, 600))
 
 
-def affiche_map(carte, personnage, monstres):
+def affiche_map(carte, personnage, monstres, objets):
     for (x, y) in carte.murs:
         rect = pg.Rect(x*taille, y*taille, taille, taille)
         color = (255, 255, 255)
@@ -58,6 +58,24 @@ def affiche_map(carte, personnage, monstres):
                 color = (0, 0, 0)
                 pg.draw.rect(screen, color, rect)
                 pg.display.update
+    for obj in objets:
+        font_obj = pg.font.Font('freesansbold.ttf', taille - 1)
+        x, y = obj.position
+        text_rect_obj.center = ((taille * x + taille / 2)/2,
+                                (taille * y + taille / 2)/2)
+        rect = pg.Rect(x*taille, y*taille, taille, taille)
+        if obj.nom == "gold":
+            color = (255,255,0)
+            pg.draw.rect(screen, color, rect)
+            screen.blit(text_surface_obj, text_rect_obj)
+        elif obj.nom == "soin":
+            color = (75,0,130)
+            pg.draw.rect(screen, color, rect)
+            screen.blit(text_surface_obj, text_rect_obj)
+        elif obj.nom == "arme":
+            color = (132,132,132)
+            pg.draw.rect(screen, color, rect)
+            screen.blit(text_surface_obj, text_rect_obj)
 
 
 def affiche_monstre_mort(monstre):
