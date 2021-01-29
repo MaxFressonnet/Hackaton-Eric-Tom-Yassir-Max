@@ -51,6 +51,6 @@ while running:
                         if x.nom == "gold":
                             personnage.gold += x.power
                         listobj.remove(x)
-        affiche_map(carte, personnage, monstres)
+        affiche_map(carte, personnage, monstres, listobj)
         pg.display.set_caption(f"Force : {personnage.force}")
         pg.display.set_caption(f"Gold : {personnage.gold}")
