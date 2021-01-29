@@ -1,6 +1,6 @@
 import pygame as pg
 from interface import affiche_map, affiche_monstre_mort
-from classe_mons_pers import Personnage, Monstre
+from classe_mons_pers import Personnage, Monstre, Objet
 from map import Map
 
 personnage = Personnage([5, 5])
@@ -10,6 +10,10 @@ couloir = [[[15, 7], [22, 7], [22, 14]]]
 carte = Map(mur, porte, couloir)
 monstre = Monstre([10, 20], 15, 5)
 monstres = [monstre]
+potion1 = Objet("soin", [5,4], 30)
+potion2 = Objet("soin", [18,17], 30)
+marteau = Objet("arme", [10, 5], 20)
+listobj = [potion1, potion2, marteau]
 
 running = True
 while running:
@@ -33,4 +37,20 @@ while running:
             for monstre in monstres:
                 if monstre.vivant:
                     Monstre.avancer(monstre, personnage, event.key, carte)
+            for x in listobj:
+                if x.position == personnage.position:
+                    if event.type == pg.K_r:
+                        if x.nom == "soin":
+                            if personnage.hp < personnage.hpmax - x.power:
+                                personnage.hp += x.power
+                            else:
+                                personnage.hp = personnage.hpmax
+                        if x.nom == "arme":
+                            if personnage.force < x.power:
+                                personnage.force = x.power
+                        if x.nom == "gold":
+                            personnage.gold += x.power
+                        listobj.remove(x)
         affiche_map(carte, personnage, monstres)
+        pg.display.set_caption(f"Force : {personnage.force}")
+        pg.display.set_caption(f"Gold : {personnage.gold}")

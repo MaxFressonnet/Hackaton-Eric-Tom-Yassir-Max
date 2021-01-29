@@ -9,6 +9,8 @@ class Personnage:
         self.hp = hp
         self.force = force
         self.previous = position
+        self.gold = 0
+        self.hpmax = hp
 
     def avancer(self, key, carte):
         direction = [0, 0]
@@ -78,3 +80,11 @@ class Monstre:
             self.vue = True
         if d <= 1:
             personnage.hp -= self.force
+
+
+class Objet:
+
+    def __init__(self,nom,pos, power):
+        self.nom = nom
+        self.position = pos
+        self.power = power
