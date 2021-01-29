@@ -20,9 +20,9 @@ class Personnage:
         if key == pg.K_DOWN:
             direction = [0, 1] 
         
-        pos = [self.position[0] + direction[0], self.position[1] + direction[1]]
-        if self.position in carte.couloirs :
-            if pos not in carte.murs and (pos in carte.couloirs or pos in self.portes):
+        pos = (self.position[0] + direction[0], self.position[1] + direction[1])
+        if tuple(self.position) in carte.couloirs :
+            if pos not in carte.murs and (pos in carte.couloirs or pos in carte.portes):
                 self.position = pos
         else :
             if pos not in carte.murs:
@@ -56,7 +56,7 @@ class Monstre:
                 self.vue = True
     
 
-    
+
     def attaquer(self, personnage):
         pass
 
