@@ -10,6 +10,7 @@ class Personnage:
         self.previous = position
 
     def avancer(self, key, carte):
+        direction = [0, 0]
         self.previous = self.position
         if key == pg.K_LEFT:
             direction = [-1, 0]
@@ -21,7 +22,7 @@ class Personnage:
             direction = [0, 1] 
         
         pos = (self.position[0] + direction[0], self.position[1] + direction[1])
-        if tuple(self.position) in carte.couloirs :
+        if tuple(self.position) in carte.couloirs:
             if pos not in carte.murs and (pos in carte.couloirs or pos in carte.portes):
                 self.position = pos
         else :
